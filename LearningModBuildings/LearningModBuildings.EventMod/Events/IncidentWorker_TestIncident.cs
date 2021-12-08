@@ -30,8 +30,15 @@ namespace LearningModBuildings.EventMod.Events
                 Log.Message($"Colonists Count = {map.mapPawns.ColonistsSpawnedCount}");
                 //вывдит текст события
                 return false;
-            }
+            }            
             Log.Message($"EXECUTE");
+            foreach(var pawn in map.mapPawns.FreeColonists)
+            {
+                Log.Message($"Pawn-> {pawn.Name.ToStringFull}") ;
+            }
+            /*Вызовем стандартное уведомление о событии*/
+            SendStandardLetter();
+
             return true;
         }
     }
