@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningModBuildings.EventMod", "LearningModBuildings.EventMod\LearningModBuildings.EventMod.csproj", "{7CCFE4B4-1C41-4D5E-B40F-75F219271F1D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LearningModBuildings", "LearningModBuildings", "{5A075DDD-1BCB-4337-94DD-3B6AE13045DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningModBuildings.EventMod", "LearningModBuildings\LearningModBuildings.EventMod\LearningModBuildings.EventMod.csproj", "{81FD6B60-E795-4955-BD88-6FA895056730}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7CCFE4B4-1C41-4D5E-B40F-75F219271F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CCFE4B4-1C41-4D5E-B40F-75F219271F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CCFE4B4-1C41-4D5E-B40F-75F219271F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CCFE4B4-1C41-4D5E-B40F-75F219271F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81FD6B60-E795-4955-BD88-6FA895056730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81FD6B60-E795-4955-BD88-6FA895056730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81FD6B60-E795-4955-BD88-6FA895056730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81FD6B60-E795-4955-BD88-6FA895056730}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81FD6B60-E795-4955-BD88-6FA895056730} = {5A075DDD-1BCB-4337-94DD-3B6AE13045DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8FAF67F-DED1-40F2-8070-A171F97C8FEA}
