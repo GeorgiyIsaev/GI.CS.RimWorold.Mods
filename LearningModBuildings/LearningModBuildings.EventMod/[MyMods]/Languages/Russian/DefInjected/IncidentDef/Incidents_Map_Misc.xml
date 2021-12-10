@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <TestEvent.label>Наше событие</TestEvent.label>
+  <TestEvent.letterLabel>Переведная надпись</TestEvent.letterLabel>
+  <TestEvent.letterText>Мой текст о событии</TestEvent.letterText>
+  
+</LanguageData>

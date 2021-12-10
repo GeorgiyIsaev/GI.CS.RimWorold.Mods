@@ -4,6 +4,9 @@
 2. Notepad++: 
 3. ILSpy:
 
+
+------
+------
 Лекция 02: Сосотав мода. События 
 
 Мод состоит из 7 основыных папок:
@@ -134,6 +137,15 @@ End() что произодет по оканчанию события
 
 
 Для того что бы связать условие необходимо GameConditions_Misc.xml связать с классом 	<conditionClass>LearningModBuildings.EventMod.Events.GameCondition_TestCondition</conditionClass>
+
+
+
+
+------
+------
+
+Лекция 03: 
+
 
 GI.CS.RimWorold.Mods
 LearningModBuildings.EventMod

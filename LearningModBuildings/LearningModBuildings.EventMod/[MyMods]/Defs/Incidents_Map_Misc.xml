@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<IncidentDef>
+		<defName>TestEvent</defName>
+		<label>Test Name</label>
+		<category>Misc</category>
+		<letterLabel>Текст с названием</letterLabel>
+		<letterText>Описание события</letterText>
+		<letterDef>PositiveEvent</letterDef>
+		<allowedBiomes>
+			<li>Tundra</li>
+			<li>AridShrubland</li>
+		</allowedBiomes>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>LearningModBuildings.EventMod.Events.IncidentWorker_TestIncident</workerClass>
+		<baseChance>50</baseChance>
+		<minRefireDays>10</minRefireDays>
+	</IncidentDef>
+</Defs>
