@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GameConditionDef>
+    <defName>TestGameCondition</defName>
+    <label>test condition GM</label>
+    <description>A game description</description>
+    <endMessage>End 123.</endMessage>
+	<conditionClass>LearningModBuildings.EventMod.Events.GameCondition_TestCondition</conditionClass>
+    <canBePermanent>true</canBePermanent>	
+  </GameConditionDef>
+
+</Defs>
