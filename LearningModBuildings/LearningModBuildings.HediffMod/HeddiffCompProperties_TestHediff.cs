@@ -22,13 +22,10 @@ namespace LearningModBuildings.HediffMod
 
         public HeddiffCompProperties_TestHediff()
         {
-         
-
-
-            
             //В конструкторе необходимо указать тип нашего обрабочика
-            compClass = typeof();
-
+            // compClass = typeof();
+            //Можно использовать готовое событие или создать свое
+            compClass = typeof(HediffComp_TestHediff);
 
         }
     }
