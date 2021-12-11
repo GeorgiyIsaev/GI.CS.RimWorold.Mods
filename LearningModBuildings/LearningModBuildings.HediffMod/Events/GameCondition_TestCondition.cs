@@ -40,7 +40,7 @@ namespace LearningModBuildings.EventMod.Events
                 foreach (var pawn in map.mapPawns.AllPawns)
                 {
                     //Находится ли пешка не под потолком И является человеком
-                    if(!pawn.Position.Roofed(map) && pawn.RaceProps.Humanlike)
+                    if(!pawn.Position.Roofed(pawn.Map) && pawn.RaceProps.Humanlike)
                     {
                         HealthUtility.AdjustSeverity(pawn, HediffDefOfLocal.TestHediff,
                             HediffDefOfLocal.TestHediff.initialSeverity); // Подхватит из XML начальное состояне болезни
