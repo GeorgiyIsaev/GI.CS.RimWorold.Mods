@@ -44,8 +44,6 @@ namespace LearningModBuildings.EventMod.Events
                     {
                         HealthUtility.AdjustSeverity(pawn, HediffDefOfLocal.TestHediff,
                             HediffDefOfLocal.TestHediff.initialSeverity); // Подхватит из XML начальное состояне болезни
-
-
                     }                
                 }
             }
