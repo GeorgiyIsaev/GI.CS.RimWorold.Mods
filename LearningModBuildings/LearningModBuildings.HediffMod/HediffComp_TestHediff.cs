@@ -40,5 +40,6 @@ namespace LearningModBuildings.HediffMod
                 GenExplosion.DoExplosion(Pawn.Position, Pawn.Map, Props.TestParam, DamageDefOf.Bomb, null);
 
             }
+        }
     }
 }
