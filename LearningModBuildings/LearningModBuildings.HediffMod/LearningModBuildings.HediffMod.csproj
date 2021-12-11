@@ -47,8 +47,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HeddiffCompProperties_TestHediff.cs" />
-    <Compile Include="HediffComp_TestHediff.cs" />
+    <Compile Include="Events\GameCondition_TestCondition.cs" />
+    <Compile Include="Events\IncidentWorker_TestIncident.cs" />
+    <Compile Include="Hediff\HeddiffCompProperties_TestHediff.cs" />
+    <Compile Include="Hediff\HediffComp_TestHediff.cs" />
+    <Compile Include="Hediff\HediffDefOfLocal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -36,9 +36,8 @@ namespace LearningModBuildings.HediffMod
 
             if (Pawn.IsHashIntervalTick(2500))
             {
-                //Будим создавать взрыв через класс GenExp
+                //Будим создавать взрыв через класс GenExplosion
                 GenExplosion.DoExplosion(Pawn.Position, Pawn.Map, Props.TestParam, DamageDefOf.Bomb, null);
-
             }
         }
     }
