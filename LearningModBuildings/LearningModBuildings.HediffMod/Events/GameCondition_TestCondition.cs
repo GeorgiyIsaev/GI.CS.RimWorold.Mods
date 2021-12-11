@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using LearningModBuildings.HediffMod;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,6 @@ namespace LearningModBuildings.EventMod.Events
             //Плохой способ: Найти предмет путем перебора всех предмотов по названию
             //HediffDef hediff = DefDatabase<HediffDef>.GetNamed("TestHediff");
             //Хороший способ: Создать отдельный класс HediffDefOfLocal с атрибутом  [DefOf] который будит хранит ссылку на объект
-
-
-
         }
         public override void GameConditionTick()
         {
@@ -41,9 +39,14 @@ namespace LearningModBuildings.EventMod.Events
             foreach (var map in AffectedMaps) {
                 foreach (var pawn in map.mapPawns.AllPawns)
                 {
-                    //Наносить пешке 5 урона
-                    pawn.TakeDamage(new DamageInfo(DamageDefOf.Stab, 5f));
+                    //Находится ли пешка не под потолком И является человеком
+                    if(!pawn.Position.Roofed(map) && pawn.RaceProps.Humanlike)
+                    {
+                        HealthUtility.AdjustSeverity(pawn, HediffDefOfLocal.TestHediff,
+                            HediffDefOfLocal.TestHediff.initialSeverity); // Подхватит из XML начальное состояне болезни
 
+
+                    }                
                 }
             }
         }
