@@ -38,7 +38,32 @@ namespace LearningModBuildings.HediffMod
             {
                 //Будим создавать взрыв через класс GenExplosion
                 GenExplosion.DoExplosion(Pawn.Position, Pawn.Map, Props.TestParam, DamageDefOf.Bomb, null);
+                DomageCount++;
             }
         }
+
+        public override void CompExposeData()
+        {
+            // Метод в котором мы переопределим то, как будит
+            // сохраняться течение болезни при сейве
+            base.CompExposeData();
+
+            //сохраним возможность извелекать батарею после сохранения
+            //Scribe_Defs.Look(ref MyItems, "MyItems");
+
+            //сохраним колличство нанесенного урона
+            Scribe_Values.Look(ref DomageCount, "DomageCount");
+
+        }
+        //public ThingDef MyItems;
+        //public override void Notify_PawnDied()
+        //{
+        //    base.Notify_PawnDied();
+        //    MyItems = ThingDefOf.Battery;
+        //    //При смерти пешки из ней можно вытащить батарею
+        //}
+
+        public int DomageCount; //сколько раз пешка получила урон
+
     }
 }
