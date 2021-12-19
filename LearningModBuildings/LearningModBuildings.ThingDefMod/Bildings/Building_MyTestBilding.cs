@@ -36,7 +36,7 @@ namespace LearningModBuildings.HediffMod.Bildings
                 // selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 20));
                 /*Зазадим урон уже с помощью устанавливаемого компса*/
                 selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 
-                    compMyTestBuilding.Props.Damege));
+                    compMyTestBuilding.Props.Damage));
 
             });
 

@@ -9,7 +9,7 @@ namespace LearningModBuildings.HediffMod.Bildings
     /*Класс с пользовательским компсом*/
     public class CompProperties_MyTestBilding : CompProperties
     {
-        public float Damege;
+        public float Damage;
         public CompProperties_MyTestBilding()
         {
             compClass = typeof(CompMyTestBuilding);
