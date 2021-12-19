@@ -9,10 +9,14 @@ namespace LearningModBuildings.HediffMod.Bildings
 {
     public class Building_MyTestBilding : Building
     {
+        private CompMyTestBuilding compMyTestBuilding;
+        
+        
         /*Метод для генирации предмета*/
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {            
             base.SpawnSetup(map, respawningAfterLoad);
+            compMyTestBuilding = this.GetComp<CompMyTestBuilding>();
             Log.Message("SpawnSetup");
         }
 
@@ -29,7 +33,11 @@ namespace LearningModBuildings.HediffMod.Bildings
             /*При выборе данной опции наносит урон пешке*/
             yield return new FloatMenuOption("Option 1", delegate
             {
-                selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 20));
+                // selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 20));
+                /*Зазадим урон уже с помощью устанавливаемого компса*/
+                selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 
+                    compMyTestBuilding.Props.Damege));
+
             });
         }
         private FloatMenuOption GetOption()
