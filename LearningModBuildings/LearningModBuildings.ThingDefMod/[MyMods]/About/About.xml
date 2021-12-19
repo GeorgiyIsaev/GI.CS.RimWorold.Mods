@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>MyMod</name>
+  <author>GI</author>
+  <description>Это мой тестовый мод</description>
+  <supportedVersions><li>1.0</li></supportedVersions>
+</ModMetaData>

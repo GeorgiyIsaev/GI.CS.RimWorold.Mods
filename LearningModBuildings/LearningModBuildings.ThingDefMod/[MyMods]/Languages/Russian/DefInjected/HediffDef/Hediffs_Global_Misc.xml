@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData> 
+
+  <TestHeddiff.label>Тестовая болезнь</TestHeddiff.label>  
+  <TestHeddiff.stages.minor-0>незаметная статдия</TestHeddiff.stages.minor-0>
+  <TestHeddiff.stages.minor-1>начальная статдия</TestHeddiff.stages.minor-1>   
+  <TestHeddiff.stages.midle>среденя стадия</TestHeddiff.stages.midle>  
+  <TestHeddiff.stages.chaos>терминальная стадия</TestHeddiff.stages.chaos>  
+</LanguageData>

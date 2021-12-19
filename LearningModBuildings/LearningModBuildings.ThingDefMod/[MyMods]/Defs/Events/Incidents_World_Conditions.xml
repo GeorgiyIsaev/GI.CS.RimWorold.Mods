@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <IncidentDef>
+    <defName>TestCondition</defName>
+    <label>Test A Condition</label>
+		<category>Misc</category>
+    <targetTags>
+      <li>World</li>
+    </targetTags>
+    <workerClass>IncidentWorker_MakeGameCondition</workerClass>
+    <gameCondition>TestGameCondition</gameCondition>
+    <letterLabel>GM execute!!!!!</letterLabel>
+    <letterText>1234.</letterText>
+    <letterDef>NegativeEvent</letterDef>
+    <baseChance>2.5</baseChance>
+    <minRefireDays>10</minRefireDays>
+    <durationDays>
+      <min>1</min>
+      <max>10</max>
+    </durationDays>
+  </IncidentDef>
+
+
+</Defs>
