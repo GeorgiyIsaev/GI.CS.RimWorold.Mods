@@ -39,18 +39,21 @@ namespace LearningModBuildings.HediffMod.Bildings
                     compMyTestBuilding.Props.Damege));
 
             });
+
+            /*Возврат втрого менб*/
+            yield return GetOption();
         }
         private FloatMenuOption GetOption()
         {
-            FloatMenuOption option = new FloatMenuOption("Option2",
-                delegate 
-                {
-                    Log.Message("Option2"); ;
-                });
-            return option;
+            return new FloatMenuOption("Option2",delegate 
+            {
+                Log.Message("Option2"); ;
+            });
+            
         }
 
         /*Меню придмета при его выборе (Гизма)*/
+        /*Будит переметывать время на целый сезон*/
         public override IEnumerable<Gizmo> GetGizmos()
         {
             yield return new Command_Action()
