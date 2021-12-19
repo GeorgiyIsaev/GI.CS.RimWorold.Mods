@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bildings\Building_MyTestBilding.cs" />
     <Compile Include="Events\GameCondition_TestCondition.cs" />
     <Compile Include="Events\IncidentWorker_TestIncident.cs" />
     <Compile Include="Hediff\HeddiffCompProperties_TestHediff.cs" />
@@ -54,5 +55,9 @@
     <Compile Include="Hediff\HediffDefOfLocal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Learning.ThingDefMod.txt" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
