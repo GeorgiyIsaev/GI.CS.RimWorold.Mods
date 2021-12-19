@@ -7,7 +7,7 @@ using Verse;
 
 namespace LearningModBuildings.HediffMod.Bildings
 {
-    class Building_MyTestBilding : Building
+    public class Building_MyTestBilding : Building
     {
         /*Метод для генирации предмета*/
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
