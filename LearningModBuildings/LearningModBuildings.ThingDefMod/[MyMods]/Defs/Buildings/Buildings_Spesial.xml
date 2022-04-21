@@ -26,9 +26,10 @@
 			<glowRadius>3</glowRadius>
 			<glowColor>(81,130,176,0)</glowColor>
 		</li>
-		<li Class="CompProperties_Flickable"/>
-		</comps> 
-		<li Class=" LearningModBuildings.HediffMod.Bildings.CompProperties_MyTestBilding">		
+		<li Class="CompProperties_Flickable"/>	
+		<li Class=" LearningModBuildings.HediffMod.Bildings.CompProperties_MyTestBilding">	
+			<Damage>500</Damage>
 		</li>
+		</comps> 
 	</ThingDef>
 </Defs>
