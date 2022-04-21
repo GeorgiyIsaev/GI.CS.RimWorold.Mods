@@ -209,6 +209,52 @@ ThingDef - Базовый класс строений и вещей в игре.
 <li Class="CompProperties_Power">
 
 
+Building населдуется от Things - отвечает за строения
+
+метод SpawnSetup - вызвается при спавне предмета
+метод Tick() - вызвается при тике
+
+Методж public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn) позволяет создать меню взаимодействия с предметом     
+Метод   private FloatMenuOption GetOption() - позволяет добавить опцию в меню
+
+Gizmo - Это выпадающие кнопки снизу предмета добавляютя через метод public override IEnumerable<Gizmo> GetGizmos()
+
+----
+
+Реализация компаненентов предмета - comps
+
+Компонент реализуется двумя классами CompProperties который укзвается в xml и класс обработчик.
+При созданиии свойст компа класс наследуется от CompProperties
+public class CompProperties_MyTestBilding : CompProperties
+В конструкторе класса поле compClass может быть заполенено классом наследуемым от ThingComp который определить нужное своство
+Можно созать свой класс со своим действием
+public class CompMyTestBuilding : ThingComp
+
+Теперь свой компс можно добавить список xml:
+<li Class=" LearningModBuildings.HediffMod.Bildings.CompProperties_MyTestBilding">	
+	<Damage>500</Damage>
+</li>
+
+Для вызова компонента в класс (Building_MyTestBilding : Building) следует добавить поле
+private CompMyTestBuilding compMyTestBuilding;
+После чего в методе при спавне предмета (SpawnSetup) добавить его инициализацию:
+compMyTestBuilding = this.GetComp<CompMyTestBuilding>(); //получение идет через GetComp
+
+При этом если мы хотим использовать параметр компса при взаимодействии предмета он может отсутствовать списке доступных свойств. Создных нами свойств нет так используется самы базовый класс. Что бы полуть доступ в CompMyTestBuilding : ThingComp следует добавить свойсто указывающее на объект свойства компса:
+public CompProperties_MyTestBilding Props => (CompProperties_MyTestBilding)props; // приведение свойства к CompProperties_MyTestBilding
+
+Теперь в метод опции строения можно передать параметр копса который будит определять количество наносимого урона
+yield return new FloatMenuOption("Option 1", delegate
+{
+	selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 
+		compMyTestBuilding.Props.Damage));
+});
+
+
+
+____
+____
+
 
 
 
