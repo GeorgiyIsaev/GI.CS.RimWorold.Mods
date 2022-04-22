@@ -55,6 +55,8 @@
     <Compile Include="Hediff\HeddiffCompProperties_TestHediff.cs" />
     <Compile Include="Hediff\HediffComp_TestHediff.cs" />
     <Compile Include="Hediff\HediffDefOfLocal.cs" />
+    <Compile Include="Jobs\JobDefOfLocal.cs" />
+    <Compile Include="Jobs\JobDriver_CarryItemToBuilding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
