@@ -259,7 +259,45 @@ ____
 
 
 
+[#5] Создание модов для RimWorld - Шаг 5 - Thing - общее. Job и Things. Apparel. Патроны и оружие.
 
+
+Создадим мод на строение, в которое пешка загружает предмет и получает два.
+
+
+В классе строения Building_MyTestBilding : Building создадим переменую которая укажет на наше эл-тричесвто
+public CompPowerTrader compPowerTrader;
+При появлении предмета свяжем значение с текущим компом.
+
+Сделаем проверку на подключение электричество в виде свойства, которое также проверяет есть ли сейчас солнечная вспышка на карете:
+public bool HasPower
+{
+	get
+	{
+		if(compPowerTrader != null && compPowerTrader.PowerOn)
+		{
+			return !Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare);
+		}
+		return false;
+	}
+}
+
+
+Добавим переменную которая будит хранить предмет
+public Thing ContainedThing;
+
+Сохранение осуществляется через метод ExposeData();
+public override void ExposeData()
+{
+	base.ExposeData();
+	Scribe_References.Look(ref ContainedThing, "ContainedThing");
+}
+
+
+
+ 
+ 
+ 
 
 
 
