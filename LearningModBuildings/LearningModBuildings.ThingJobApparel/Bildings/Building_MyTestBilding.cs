@@ -1,9 +1,11 @@
-﻿using RimWorld;
+﻿using LearningModBuildings.HediffMod.Jobs;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
+using Verse.AI;
 
 namespace LearningModBuildings.HediffMod.Bildings
 {
@@ -70,6 +72,37 @@ namespace LearningModBuildings.HediffMod.Bildings
         public override string GetInspectString()
         {
             return $"Building_MyTestBilding_InspectString".Translate(ticker.TicksToDays().ToString("f2"));
+        }
+
+        /*Выдача работы*/
+        public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
+        {
+            yield return new FloatMenuOption(ContainedThing == null ? //делаем тернарную проверку на наличие предмета в печке
+                "Bulding_MyTestBulding_TakeJob_LoadItem".Translate() :
+                "Bulding_MyTestBulding_TakeJob_UnloadItem".Translate(),
+                delegate{
+                    List<FloatMenuOption> option = new List<FloatMenuOption>();
+                    foreach(var thing in GetThing())
+                    {
+                        /*Создаем опции меню из каждого добавленого предмета*/
+                        option.Add(new FloatMenuOption(thing.Label, delegate
+                        {
+                            Job job = new Job(JobDefOfLocal.CarryIdtemBuilding, this, thing);
+                            job.count = 1;
+                            job.playerForced = true;
+                            selPawn.jobs.TryOpportunisticJob(job);
+                        }));
+
+                        /*Формируем меню предметов*/
+                        Find.WindowStack.Add(new FloatMenu(option));
+                    }
+                });
+        }
+
+        /*Получим список всех наркотивко на карте*/
+        public IEnumerable<Thing> GetThing()
+        {
+            return Map.listerThings.ThingsInGroup(ThingRequestGroup.Drug);
         }
 
 
