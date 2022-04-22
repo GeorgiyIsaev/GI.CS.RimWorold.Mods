@@ -66,7 +66,11 @@ namespace LearningModBuildings.HediffMod.Bildings
 
         }
 
-
+        /*Добавим ключ*/
+        public override string GetInspectString()
+        {
+            return $"Building_MyTestBilding_InspectString".Translate(ticker.TicksToDays().ToString("f2"));
+        }
 
 
 
