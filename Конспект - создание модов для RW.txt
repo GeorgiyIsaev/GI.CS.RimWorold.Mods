@@ -395,9 +395,60 @@ finish.initAction = delegate
 <driverClass>LearningModBuildings.HediffMod.Jobs.JobDriver_CarryItemToBuilding</driverClass>
 
 
+----
 
+Теперь необходимо создать механику - пренести унести предмет от верстака 
 
+В классе  public class Building_MyTestBilding : Building добавим флаг для проверки выполнено ли действие
+public bool Complete; и построем логику удвоения предмета:
 
+public bool Complete; //будит проверять выполнена ли работа
+
+private int ticks => 10000; // сколько  нужно времени что бы предмет улучшился
+private int ticker = 0; //таймер тикера //обязательно сохранить в ExposeData
+
+public override void Tick()
+{
+	base.Tick();
+	//Если еще не выполнено движем таймер
+	if (!Complete)
+	{
+		ticker--; 
+		if(ticker <= 0)
+		{              
+			ThingComplate();
+		}
+	}
+}
+private void ThingComplate()
+{
+	ticker = ticks; // возвращаем стартовое значение тикера
+
+	Complete = true; //работа завершилась
+
+	/*Проверим что контейнер есть*/        
+	if(ContainedThing != null)
+	{    /*Умножаем количество предметов контейнера на 2*/
+		ContainedThing.stackCount *= 2;
+	}
+
+}
+ 
+ 
+----
+
+Добавим ключ для описания действия (f2 округлить до сотыхъ долей)
+public override string GetInspectString()
+{
+	return $"Building_MyTestBilding_InspectString".Translate(ticker.TicksToDays().ToString("f2"));
+}
+
+теперь в файл \Languages\Russian\Keyed\Keys.xml добавим превод:
+<LanguageData>
+	<Building_MyTestBilding_InspectString>Осталось: {0}</Building_MyTestBilding_InspectString>  
+</LanguageData>
+
+----
 
 
 
