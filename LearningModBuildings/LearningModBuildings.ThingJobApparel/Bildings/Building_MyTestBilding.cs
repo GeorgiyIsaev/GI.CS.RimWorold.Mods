@@ -9,66 +9,40 @@ namespace LearningModBuildings.HediffMod.Bildings
 {
     public class Building_MyTestBilding : Building
     {
-        private CompMyTestBuilding compMyTestBuilding;
-        
-        
-        /*Метод для генирации предмета*/
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {            
-            base.SpawnSetup(map, respawningAfterLoad);
-            compMyTestBuilding = this.GetComp<CompMyTestBuilding>();
-            Log.Message("SpawnSetup");
-        }
+        public CompPowerTrader compPowerTrader; //указывает на наше эл-ктричество
 
-        /*Изменение предмета при кажом тике*/
-        public override void Tick()
+        //флаг для проверки есть ли электричество
+        public bool HasPower
         {
-            base.Tick();
-            Log.Message("TICK");
-        }
-
-        /*Выпадающий список из предмета*/
-        public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
-        {
-            /*При выборе данной опции наносит урон пешке*/
-            yield return new FloatMenuOption("Option 1", delegate
+            get
             {
-                // selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 20));
-                /*Зазадим урон уже с помощью устанавливаемого компса*/
-                selPawn.TakeDamage(new DamageInfo(DamageDefOf.Bite, 
-                    compMyTestBuilding.Props.Damage));
-
-            });
-
-            /*Возврат втрого менб*/
-            yield return GetOption();
-        }
-        private FloatMenuOption GetOption()
-        {
-            return new FloatMenuOption("Option2",delegate 
-            {
-                Log.Message("Option2"); ;
-            });
-            
-        }
-
-        /*Меню придмета при его выборе (Гизма)*/
-        /*Будит переметывать время на целый сезон*/
-        public override IEnumerable<Gizmo> GetGizmos()
-        {
-            yield return new Command_Action()
-            {
-                defaultLabel = "Default Labael",
-                defaultDesc = "Default desc 123",
-                icon = def.uiIcon,
-                action = delegate
+                if(compPowerTrader != null && compPowerTrader.PowerOn)
                 {
-                    Find.TickManager.DebugSetTicksGame
-                    (
-                        Find.TickManager.TicksGame + 12000000
-                    );
+                   //проверка есть ли солнечная вспышка
+                    return !Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare);
                 }
-            };
+                return false;
+            }
         }
+        public Thing ContainedThing; //переменная в котороую мы будим складывать наш предмет
+
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+
+            compPowerTrader = GetComp<CompPowerTrader>();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref ContainedThing, "ContainedThing");
+        }
+     
+
+
+
+
     }
 }
