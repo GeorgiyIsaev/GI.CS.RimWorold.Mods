@@ -502,6 +502,10 @@ public IEnumerable<Thing> GetThing()
 if (ContainedThing != null && !Complete){}
 
 
+СТОП ВИДЕО 30:33
+
+
+
 GI.CS.RimWorold.Mods
 LearningModBuildings.EventMod
 
