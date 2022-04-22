@@ -45,7 +45,7 @@ namespace LearningModBuildings.HediffMod.Bildings
         {
             base.Tick();
             //Если еще не выполнено движем таймер
-            if (!Complete)
+            if (ContainedThing != null && !Complete)
             {
                 ticker--; 
                 if(ticker <= 0)

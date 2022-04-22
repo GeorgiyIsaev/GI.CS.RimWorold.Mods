@@ -61,9 +61,9 @@ namespace LearningModBuildings.HediffMod.Jobs
                         pawn.carryTracker.TryDropCarriedThing(building_MyTestBilding.Position, ThingPlaceMode.Near, out Thing result);
                        //И убераем предмет из строения
                         building_MyTestBilding.ContainedThing = Item;
-                        Item.DeSpawn(); 
-
+                        Item.DeSpawn();
                     }
+                    building_MyTestBilding.Complete = false; //работа завершена
                 }
             };
 
