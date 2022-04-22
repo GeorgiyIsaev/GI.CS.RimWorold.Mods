@@ -1,0 +1,35 @@
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>TestBuilding</defName>
+		<label>Supa building</label> 
+		<description>Supa building</description>
+		<thingClass>LearningModBuildings.HediffMod.Bildings.Building_MyTestBilding</thingClass>
+		<graphicData>
+			<texPath>Things/sfera</texPath> 
+			<graphicClass>Graphic_Single</graphicClass> 
+			<drawSize>(1, 1)</drawSize>
+		</graphicData>
+		<designationCategory>Misc</designationCategory> 
+		<statBases>
+			<MarketValue>1500</MarketValue>
+			<MaxHitPoints>1000</MaxHitPoints>
+		</statBases> 
+		<tickerType>Normal</tickerType> 
+		<size>(3, 3)</size>
+		<comps>
+		<li Class="CompProperties_Power">
+			<compClass>CompPowerTrader</compClass>
+			<shortCircuitInRain>true</shortCircuitInRain>
+			<basePowerConsumption>1000</basePowerConsumption>
+		</li> 
+		<li Class="CompProperties_Glower">
+			<glowRadius>3</glowRadius>
+			<glowColor>(81,130,176,0)</glowColor>
+		</li>
+		<li Class="CompProperties_Flickable"/>	
+		<li Class=" LearningModBuildings.HediffMod.Bildings.CompProperties_MyTestBilding">	
+			<Damage>500</Damage>
+		</li>
+		</comps> 
+	</ThingDef>
+</Defs>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs> 
+  <HediffDef>
+    <defName>TestHeddiff</defName>
+    <label>my first Heddif</label>
+    <lethalSeverity>1</lethalSeverity>	
+    <hediffClass>HediffWithComps</hediffClass>
+    <initialSeverity>0.1</initialSeverity>
+    <tendable>true</tendable> 
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+		<baseTendDurationHours>38</baseTendDurationHours>
+		<severityPerDayTended>-1.5</severityPerDayTended>
+		<disappearsAtTotalTendQuality>80</disappearsAtTotalTendQuality> 
+      </li>
+	  <li Class="HediffCompProperties_Immunizable">
+        <severityPerDayNotImmune>-0.08</severityPerDayNotImmune>
+      </li>
+	 <li Class="LearningModBuildings.HediffMod.HeddiffCompProperties_TestHediff">
+            <TestParam>2</TestParam>
+      </li>
+    </comps>
+	<stages>
+      <li>
+        <label>minor</label>
+        <becomeVisible>false</becomeVisible>
+      </li>
+      <li>
+        <label>minor</label>
+        <minSeverity>0.1</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>midle</label>
+        <minSeverity>0.2</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>chaos</label>
+        <minSeverity>0.4</minSeverity>       
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.15</offset>
+          </li>
+        </capMods>        
+      </li>      
+    </stages>
+  </HediffDef>  
+</Defs>
