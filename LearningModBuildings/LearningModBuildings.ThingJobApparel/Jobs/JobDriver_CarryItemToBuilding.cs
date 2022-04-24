@@ -18,9 +18,9 @@ namespace LearningModBuildings.HediffMod.Jobs
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            if(pawn.Reserve(TargetA, job))
+            if(pawn.Reserve(TargetA, job)) // если удалось зарезервировать верстаак
             {
-                return pawn.Reserve(TargetB, job);
+                return pawn.Reserve(TargetB, job); //резервируем предмет
             }
             return false;   
         }
@@ -34,7 +34,7 @@ namespace LearningModBuildings.HediffMod.Jobs
             //взять предмет B
             yield return Toils_Haul.StartCarryThing(TargetIndex.B);
             //идем к строению А
-            yield return Toils_Goto.Goto(TargetIndex.A, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B);
+            yield return Toils_Goto.Goto(TargetIndex.A, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.A); 
             //добавим прогресс бар для нашего верстака // Wait(1000) - колличество тиков
             yield return Toils_General.Wait(1000).WithProgressBarToilDelay(TargetIndex.A).FailOnDespawnedNullOrForbidden(TargetIndex.A); 
 

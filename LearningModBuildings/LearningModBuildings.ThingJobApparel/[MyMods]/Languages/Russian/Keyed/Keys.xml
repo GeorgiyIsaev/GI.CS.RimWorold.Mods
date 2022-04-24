@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 	<Building_MyTestBilding_InspectString>Осталось: {0}</Building_MyTestBilding_InspectString>  
-			<Bulding_MyTestBulding_TakeJob_loadItem>Загрузить предмет</Bulding_MyTestBulding_TakeJob_loadItem>  
-		<Bulding_MyTestBulding_TakeJob_UnloadItem>Достать предмет</Bulding_MyTestBulding_TakeJob_UnloadItem>  
+	<Bulding_MyTestBulding_TakeJob_LoadItem>Загрузить предмет</Bulding_MyTestBulding_TakeJob_LoadItem>  
+	<Bulding_MyTestBulding_TakeJob_UnloadItem>Достать предмет</Bulding_MyTestBulding_TakeJob_UnloadItem>  
 </LanguageData>

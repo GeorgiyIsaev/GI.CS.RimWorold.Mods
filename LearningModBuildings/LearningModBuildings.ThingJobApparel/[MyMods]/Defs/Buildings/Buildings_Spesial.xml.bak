@@ -15,7 +15,7 @@
 			<MaxHitPoints>1000</MaxHitPoints>
 		</statBases> 
 		<tickerType>Normal</tickerType> 
-		<size>(2, 2)</size>
+		<size>(3, 3)</size>
 		<comps>
 		<li Class="CompProperties_Power">
 			<compClass>CompPowerTrader</compClass>
@@ -23,7 +23,7 @@
 			<basePowerConsumption>1000</basePowerConsumption>
 		</li> 
 		<li Class="CompProperties_Glower">
-			<glowRadius>6</glowRadius>
+			<glowRadius>3</glowRadius>
 			<glowColor>(81,130,176,0)</glowColor>
 		</li>
 		<li Class="CompProperties_Flickable"/>	
