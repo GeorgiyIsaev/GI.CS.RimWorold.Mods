@@ -91,30 +91,40 @@ namespace LearningModBuildings.HediffMod.Bildings
 
         /*Выдача работы*/
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
-        {        
-            yield return new FloatMenuOption(ContainedThing == null ? //делаем тернарную проверку на наличие предмета в печке
-                "Bulding_MyTestBulding_TakeJob_LoadItem".Translate() :
-                "Bulding_MyTestBulding_TakeJob_UnloadItem".Translate(),
-                delegate{
+
+        {
+            /*Если предмет загружен делаем извлечение*/
+            if (ContainedThing != null)
+            {
+                yield return new FloatMenuOption("Bulding_MyTestBulding_TakeJob_UnloadItem".Translate(), delegate
+                {
+
+                });
+            }
+            else //если нет создаем список что загрузить
+            {
+                yield return new FloatMenuOption("Bulding_MyTestBulding_TakeJob_LoadItem".Translate(), delegate
+                {
                     List<FloatMenuOption> option = new List<FloatMenuOption>();
-                    foreach(var thing in GetThing())
+                    foreach (var thing in GetThing())
                     {
-                        /*Создаем опции меню из каждого добавленого предмета*/
+                    /*Создаем опции меню из каждого добавленого предмета*/
                         option.Add(new FloatMenuOption(thing.Label, delegate
-                        {
-                            Job job = new Job(JobDefOfLocal.CarryIdtemBuilding, this, thing);
-                            job.count = thing.stackCount; //кол-во приносимых предметов (несем весь стак)
+                    {
+                                Job job = new Job(JobDefOfLocal.CarryIdtemBuilding, this, thing);
+                                job.count = thing.stackCount; //кол-во приносимых предметов (несем весь стак)
                             job.playerForced = true;
-                            selPawn.jobs.TryOpportunisticJob(job);
-                        }));
+                                selPawn.jobs.TryOpportunisticJob(job);
+                            }));
 
 
                         if (option.Count == 0) return;
 
-                        /*Формируем меню предметов*/
+                    /*Формируем меню предметов*/
                         Find.WindowStack.Add(new FloatMenu(option));
                     }
                 });
+            }
         }
 
         /*Получим список всех наркотивко на карте*/
