@@ -40,7 +40,7 @@ namespace LearningModBuildings.HediffMod.Jobs
                     //првоеряем что печка не пустая
                     if(building_MyTestBilding.ContainedThing != null)
                     {
-
+                        building_MyTestBilding.GetItem();
                     }
                 }
             };

@@ -82,6 +82,15 @@ namespace LearningModBuildings.HediffMod.Bildings
             ticker = ticks; //переведем таймер в начало работы
         }
 
+        /*Извлечение предмета из печки*/
+        public void GetItem()
+        {
+            /*Создать предмет из печки рядом*/
+            GenDrop.TryDropSpawn(ContainedThing, Position, Map, ThingPlaceMode.Near, out Thing result);
+
+        }
+
+
 
         /*Добавим ключ*/
         public override string GetInspectString()

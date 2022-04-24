@@ -2,8 +2,12 @@
 <Defs>
   <JobDef>
 		<defName>CarryIdtemBuilding</defName> <!--название-->
-		<driverClass>LearningModBuildings.HediffMod.Jobs.JobDriver_CarryItemToBuilding</driverClass> <!--свзяаные класс-->
+		<driverClass>LearningModBuildings.HediffMod.Jobs.JobDriver_CarryItemToBuilding</driverClass> 
 		<reportString>moving.</reportString>
-    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+    <JobDef>
+		<defName>GetIdtemFromBuilding</defName> <!--название-->
+		<driverClass>LearningModBuildings.HediffMod.Jobs.JobDriver_CarryGetItemFromBuilding</driverClass> 
+		<reportString>moving.</reportString>
   </JobDef>
 </Defs>
