@@ -66,7 +66,8 @@ namespace LearningModBuildings.HediffMod.Jobs
                     building_MyTestBilding.Complete = false; //работа завершена
                 }
             };
-
+            finish.defaultCompleteMode = ToilCompleteMode.Instant; //вернем работу в начальное состояние
+            yield return finish; // выполним эту работу
         }
     }
 }

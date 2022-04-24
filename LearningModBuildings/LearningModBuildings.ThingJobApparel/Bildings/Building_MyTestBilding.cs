@@ -44,6 +44,11 @@ namespace LearningModBuildings.HediffMod.Bildings
         public override void Tick()
         {
             base.Tick();
+
+            //Если нет энергии ничего не делаем
+            if (!HasPower)
+                return;
+
             //Если еще не выполнено движем таймер
             if (ContainedThing != null && !Complete)
             {
@@ -88,10 +93,13 @@ namespace LearningModBuildings.HediffMod.Bildings
                         option.Add(new FloatMenuOption(thing.Label, delegate
                         {
                             Job job = new Job(JobDefOfLocal.CarryIdtemBuilding, this, thing);
-                            job.count = 1;
+                            job.count = thing.stackCount; //кол-во приносимых предметов (несем весь стак)
                             job.playerForced = true;
                             selPawn.jobs.TryOpportunisticJob(job);
                         }));
+
+
+                        if (option.Count == 0) return;
 
                         /*Формируем меню предметов*/
                         Find.WindowStack.Add(new FloatMenu(option));
