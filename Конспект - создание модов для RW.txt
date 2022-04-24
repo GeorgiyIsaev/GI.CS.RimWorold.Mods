@@ -330,7 +330,7 @@ public Building_MyTestBilding building_MyTestBilding
     => (Building_MyTestBilding)TargetA.Thing;
  
 Сразу создадим ссылку на взятый предмет:
-public Thing Item => TargetA.Thing;
+public Thing Item => TargetB.Thing;
 
 Метод TryMakePreToilReservations(bool errorOnFailed) используется для резерватции предмета выбраной пешкой, что бы другие пешки этот предмет не брали. Если взять предмет другой пешкой то первая пешка перестает идти за эти предметом. 
 public override bool TryMakePreToilReservations(bool errorOnFailed)
@@ -484,6 +484,8 @@ public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
 				Find.WindowStack.Add(new FloatMenu(option));
 			}
 		});
+	    finish.defaultCompleteMode = ToilCompleteMode.Instant; //вернем работу в начальное состояние
+		yield return finish; // выполним эту работу
 }
 
 /*Получим список всех наркотивко на карте*/
@@ -502,7 +504,48 @@ public IEnumerable<Thing> GetThing()
 if (ContainedThing != null && !Complete){}
 
 
-СТОП ВИДЕО 30:33
+----
+----
+
+После проекрки, строение оказало не подключено к электричеству.
+Для исправления вернемяся в класс постройки Building_MyTestBilding : Building.
+И в методе тиков Tick() поставим проверку на подключение к электричеству.
+if (!HasPower) return;
+
+
+----
+----
+
+Мод вызвает ошибку когда на карте нет соответствующих предметов!
+Можно решить двумя способами:
+
+1) При генерации списка, если в список ничего не добавилось можно завершить метод.
+Для этого в метод public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn) перед генерацией меню делаем выход при отсутсвии предметов
+if (option.Count == 0) return; //если в списке ничего нет завершить
+Find.WindowStack.Add(new FloatMenu(option)); //генерирует меню на основе списка
+
+2) В методе public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn) в самом начеле можно поставить проверку на заполненность колекции
+if (!GetThing().Any())
+			yield return FloatMenuOption(); //Тут можно сделать флоат опшин который скажет что предметов нет
+
+
+----
+----
+
+Не обнулился таймер после создания предмета. Сделаем для обнуления отдельный метод, который принимает предмет загруженный в печку:     
+public void LoadItem(Thing item)
+{
+	ContainedThing = item; //загрузим новый итем в печку
+	item.DeSpawn(); //деспавнем этот итем
+	ticker = ticks; //переведем таймер в начало работы
+}
+
+Этот метод помести в выполняемую работу в метод protected override IEnumerable<Toil> MakeNewToils()
+класса JobDriver_CarryItemToBuilding : JobDriver
+
+building_MyTestBilding.LoadItem(Item); //обнуляет таймер при погрузке предмета
+
+
 
 
 
