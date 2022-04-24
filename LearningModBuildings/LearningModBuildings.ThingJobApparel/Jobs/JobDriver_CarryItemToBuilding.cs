@@ -14,7 +14,7 @@ namespace LearningModBuildings.HediffMod.Jobs
             => TargetA.Thing as Building_MyTestBilding;
         // ссылка на строение (as если привдение к типу будит ошибочно не будит ошибки)
 
-        public Thing Item => TargetA.Thing;
+        public Thing Item => TargetB.Thing;
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
@@ -59,9 +59,11 @@ namespace LearningModBuildings.HediffMod.Jobs
                     else
                     {//Если предмета нет то выбрасить текущий, что бы избежать ошибок
                         pawn.carryTracker.TryDropCarriedThing(building_MyTestBilding.Position, ThingPlaceMode.Near, out Thing result);
-                       //И убераем предмет из строения
-                        building_MyTestBilding.ContainedThing = Item;
-                        Item.DeSpawn();
+
+                        building_MyTestBilding.LoadItem(Item); //обнуляет таймер при погрузке предмета
+                        //И убераем предмет из строения
+                        //building_MyTestBilding.ContainedThing = Item;
+                        //Item.DeSpawn();
                     }
                     building_MyTestBilding.Complete = false; //работа завершена
                 }

@@ -73,6 +73,16 @@ namespace LearningModBuildings.HediffMod.Bildings
 
         }
 
+        /*Метод для обнуления таймера сдания после выполнения работы
+         принимает предмет загруженный в печку*/
+        public void LoadItem(Thing item)
+        {
+            ContainedThing = item; //загрузим новый итем в печку
+            item.DeSpawn(); //деспавнем этот итем
+            ticker = ticks; //переведем таймер в начало работы
+        }
+
+
         /*Добавим ключ*/
         public override string GetInspectString()
         {
@@ -81,7 +91,7 @@ namespace LearningModBuildings.HediffMod.Bildings
 
         /*Выдача работы*/
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
-        {
+        {        
             yield return new FloatMenuOption(ContainedThing == null ? //делаем тернарную проверку на наличие предмета в печке
                 "Bulding_MyTestBulding_TakeJob_LoadItem".Translate() :
                 "Bulding_MyTestBulding_TakeJob_UnloadItem".Translate(),
