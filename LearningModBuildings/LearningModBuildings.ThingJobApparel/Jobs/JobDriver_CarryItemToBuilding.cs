@@ -45,26 +45,8 @@ namespace LearningModBuildings.HediffMod.Jobs
                 //Если существует строение
                 if (building_MyTestBilding != null)
                 {
-                    //Если существует предмет в строении  
-                    if(building_MyTestBilding.ContainedThing != null)
-                    {
-                        //Сгененируем новый предмет
-                        GenDrop.TryDropSpawn(building_MyTestBilding.ContainedThing, //какой предмет
-                            building_MyTestBilding.Position, //куда
-                            building_MyTestBilding.Map, //на какой карте
-                            ThingPlaceMode.Direct, //на точку или Near если местоа не будит
-                            out Thing result
-                            );
-                    }
-                    else
-                    {//Если предмета нет то выбрасить текущий, что бы избежать ошибок
-                        pawn.carryTracker.TryDropCarriedThing(building_MyTestBilding.Position, ThingPlaceMode.Near, out Thing result);
-
-                        building_MyTestBilding.LoadItem(Item); //обнуляет таймер при погрузке предмета
-                        //И убераем предмет из строения
-                        //building_MyTestBilding.ContainedThing = Item;
-                        //Item.DeSpawn();
-                    }
+                    pawn.carryTracker.TryDropCarriedThing(building_MyTestBilding.Position, ThingPlaceMode.Near, out Thing result);
+                    building_MyTestBilding.LoadItem(Item); //обнуляет таймер при погрузке предмета
                     building_MyTestBilding.Complete = false; //работа завершена
                 }
             };
