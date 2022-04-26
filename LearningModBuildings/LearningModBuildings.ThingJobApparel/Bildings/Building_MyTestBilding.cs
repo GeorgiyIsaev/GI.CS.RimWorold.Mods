@@ -96,10 +96,6 @@ namespace LearningModBuildings.HediffMod.Bildings
             builder.Append($"Building_MyTestBilding_InspectString".Translate(ticker.TicksToDays().ToString("f2")));
             if(Complete)
             builder.Append($"Building_MyTestBilding_InspectStringStatus".Translate()); //Готово
-
-
-
-
             return builder.ToString();
         }
 
