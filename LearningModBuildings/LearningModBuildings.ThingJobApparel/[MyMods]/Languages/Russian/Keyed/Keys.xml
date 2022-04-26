@@ -3,5 +3,5 @@
 	<Building_MyTestBilding_InspectString>Осталось: {0}</Building_MyTestBilding_InspectString>  
 	<Bulding_MyTestBulding_TakeJob_LoadItem>Загрузить предмет</Bulding_MyTestBulding_TakeJob_LoadItem>  
 	<Bulding_MyTestBulding_TakeJob_UnloadItem>Достать предмет</Bulding_MyTestBulding_TakeJob_UnloadItem> 
-	<Building_MyTestBilding_InspectStringStatus>Готово</Building_MyTestBilding_InspectStringStatus>
+	<Building_MyTestBilding_InspectStringStatus>\nГотово</Building_MyTestBilding_InspectStringStatus>
 </LanguageData>

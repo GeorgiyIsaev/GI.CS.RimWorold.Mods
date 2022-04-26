@@ -638,6 +638,27 @@ public override string GetInspectString()
 	return builder.ToString();
 }
 
+Тперь в файле перевода ключей добавить ключ для готовности:
+Russian\Keyed\Keys.xml
+<Building_MyTestBilding_InspectStringStatus> Готово</Building_MyTestBilding_InspectStringStatus>
+
+
+-------
+-------
+
+Apparel - это одежда
+Weapons - оружие
+
+
+----
+----
+
+СТОП 51.21
+
+
+
+
+
 
 GI.CS.RimWorold.Mods
 LearningModBuildings.EventMod
