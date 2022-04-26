@@ -10,6 +10,7 @@ namespace LearningModBuildings.HediffMod.Jobs
     [DefOf]
     public static class JobDefOfLocal
     {
-        public static JobDef CarryIdtemBuilding;
+        public static JobDef CarryItemToBuilding;
+        public static JobDef GetIdtemFromBuilding;
     }
 }

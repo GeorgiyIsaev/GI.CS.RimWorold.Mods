@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <JobDef>
-		<defName>CarryIdtemBuilding</defName> <!--название-->
+		<defName>CarryItemToBuilding</defName> <!--название-->
 		<driverClass>LearningModBuildings.HediffMod.Jobs.JobDriver_CarryItemToBuilding</driverClass> 
 		<reportString>moving.</reportString>
   </JobDef>

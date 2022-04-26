@@ -61,8 +61,6 @@ namespace LearningModBuildings.HediffMod.Bildings
         }
         private void ThingComplate()
         {
-            ticker = ticks; // возвращаем стартовое значение тикера
-
             Complete = true; //работа завершилась
 
             /*Проверим что контейнер есть*/        
@@ -70,7 +68,6 @@ namespace LearningModBuildings.HediffMod.Bildings
             {    /*Умножаем количество предметов контейнера на 2*/
                 ContainedThing.stackCount *= 2;
             }
-
         }
 
         /*Метод для обнуления таймера сдания после выполнения работы
@@ -87,7 +84,7 @@ namespace LearningModBuildings.HediffMod.Bildings
         {
             /*Создать предмет из печки рядом*/
             GenDrop.TryDropSpawn(ContainedThing, Position, Map, ThingPlaceMode.Near, out Thing result);
-
+            ContainedThing = null;
         }
 
 
@@ -95,7 +92,15 @@ namespace LearningModBuildings.HediffMod.Bildings
         /*Добавим ключ*/
         public override string GetInspectString()
         {
-            return $"Building_MyTestBilding_InspectString".Translate(ticker.TicksToDays().ToString("f2"));
+            StringBuilder builder = new StringBuilder();
+            builder.Append($"Building_MyTestBilding_InspectString".Translate(ticker.TicksToDays().ToString("f2")));
+            if(Complete)
+            builder.Append($"Building_MyTestBilding_InspectStringStatus".Translate()); //Готово
+
+
+
+
+            return builder.ToString();
         }
 
         /*Выдача работы*/
@@ -107,7 +112,9 @@ namespace LearningModBuildings.HediffMod.Bildings
             {
                 yield return new FloatMenuOption("Bulding_MyTestBulding_TakeJob_UnloadItem".Translate(), delegate
                 {
-
+                    Job job = new Job(JobDefOfLocal.GetIdtemFromBuilding, this);
+                       job.playerForced = true;
+                    selPawn.jobs.TryOpportunisticJob(job);
                 });
             }
             else //если нет создаем список что загрузить
@@ -117,19 +124,19 @@ namespace LearningModBuildings.HediffMod.Bildings
                     List<FloatMenuOption> option = new List<FloatMenuOption>();
                     foreach (var thing in GetThing())
                     {
-                    /*Создаем опции меню из каждого добавленого предмета*/
+                        /*Создаем опции меню из каждого добавленого предмета*/
                         option.Add(new FloatMenuOption(thing.Label, delegate
-                    {
-                                Job job = new Job(JobDefOfLocal.CarryIdtemBuilding, this, thing);
-                                job.count = thing.stackCount; //кол-во приносимых предметов (несем весь стак)
-                            job.playerForced = true;
-                                selPawn.jobs.TryOpportunisticJob(job);
-                            }));
+                        {
+                        Job job = new Job(JobDefOfLocal.CarryItemToBuilding, this, thing);
+                        job.count = thing.stackCount; //кол-во приносимых предметов (несем весь стак)
+                        job.playerForced = true;
+                        selPawn.jobs.TryOpportunisticJob(job);
+                        }));
 
 
                         if (option.Count == 0) return;
 
-                    /*Формируем меню предметов*/
+                        /*Формируем меню предметов*/
                         Find.WindowStack.Add(new FloatMenu(option));
                     }
                 });
