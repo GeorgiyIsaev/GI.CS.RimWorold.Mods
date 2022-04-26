@@ -113,8 +113,8 @@ namespace LearningModBuildings.HediffMod.Bildings
                 yield return new FloatMenuOption("Bulding_MyTestBulding_TakeJob_UnloadItem".Translate(), delegate
                 {
                     Job job = new Job(JobDefOfLocal.GetIdtemFromBuilding, this);
-                       job.playerForced = true;
-                    selPawn.jobs.TryOpportunisticJob(job);
+                    job.playerForced = true;
+                    selPawn.jobs.TryTakeOrderedJob(job);
                 });
             }
             else //если нет создаем список что загрузить
@@ -130,7 +130,7 @@ namespace LearningModBuildings.HediffMod.Bildings
                         Job job = new Job(JobDefOfLocal.CarryItemToBuilding, this, thing);
                         job.count = thing.stackCount; //кол-во приносимых предметов (несем весь стак)
                         job.playerForced = true;
-                        selPawn.jobs.TryOpportunisticJob(job);
+                        selPawn.jobs.TryTakeOrderedJob(job);
                         }));
 
 

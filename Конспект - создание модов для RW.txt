@@ -477,7 +477,7 @@ public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
 					Job job = new Job(JobDefOfLocal.CarryIdtemBuilding, this, thing);
 					job.count = 1;
 					job.playerForced = true;
-					selPawn.jobs.TryOpportunisticJob(job);
+					selPawn.jobs.TryTakeOrderedJob(job);
 				}));
 
 				/*Формируем меню предметов*/
@@ -545,6 +545,11 @@ public void LoadItem(Thing item)
 
 building_MyTestBilding.LoadItem(Item); //обнуляет таймер при погрузке предмета
 
+
+----
+----
+
+Теперь когда на карте 
 
 
 
