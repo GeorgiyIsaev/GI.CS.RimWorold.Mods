@@ -50,6 +50,7 @@
     <Compile Include="Bildings\Building_MyTestBilding.cs" />
     <Compile Include="Bildings\CompMyTestBuilding.cs" />
     <Compile Include="Bildings\CompProperties_MyTestBilding.cs" />
+    <Compile Include="Bullet_ExplosiveBullet.cs" />
     <Compile Include="Events\GameCondition_TestCondition.cs" />
     <Compile Include="Events\IncidentWorker_TestIncident.cs" />
     <Compile Include="Hediff\HeddiffCompProperties_TestHediff.cs" />
